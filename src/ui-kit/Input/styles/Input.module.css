@@ -1,0 +1,31 @@
+.input {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  padding: 11px 13px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.input:focus {
+  outline-offset: -1px;
+  border-color: transparent;
+  outline: 2px solid var(--accent);
+}
+
+.input:disabled {
+  cursor: default;
+  background: var(--bg);
+  color: var(--text-muted);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+@media (max-width: 768px) {
+  .input {
+    font-size: 16px;
+  }
+}

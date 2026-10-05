@@ -1,0 +1,12 @@
+.page {
+  height: 100%;
+  display: grid;
+  padding: 24px;
+  place-items: center;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 16px;
+  }
+}

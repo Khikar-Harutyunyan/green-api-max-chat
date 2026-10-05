@@ -1,0 +1,10 @@
+/* Same ✓✓ as delivered, told apart by colour, as messengers do. */
+.read {
+  color: #7ef0ff;
+  font-weight: 700;
+}
+
+.failed {
+  color: #ffd7d8;
+  font-weight: 700;
+}

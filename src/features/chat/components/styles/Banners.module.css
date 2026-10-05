@@ -1,0 +1,31 @@
+.banner {
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.warning {
+  color: var(--warning);
+  background: var(--warning-bg);
+}
+
+.error {
+  color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.detail {
+  width: 100%;
+  opacity: 0.85;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 10px 12px;
+  }
+}

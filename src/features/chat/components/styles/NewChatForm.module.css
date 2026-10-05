@@ -1,0 +1,12 @@
+.row {
+  gap: 8px;
+  display: flex;
+  margin-top: 8px;
+}
+
+.error {
+  font-size: 13px;
+  margin: 10px 0 0;
+  line-height: 1.4;
+  color: var(--danger);
+}

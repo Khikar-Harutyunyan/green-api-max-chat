@@ -1,0 +1,51 @@
+.row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.rowOut {
+  justify-content: flex-end;
+}
+
+.bubble {
+  gap: 10px;
+  display: flex;
+  line-height: 1.4;
+  padding: 9px 13px;
+  border-radius: 16px;
+  align-items: flex-end;
+  word-break: break-word;
+  max-width: min(560px, 75%);
+  box-shadow: 0 1px 2px rgb(22 21 28 / 6%);
+}
+
+.in {
+  background: var(--surface);
+  border-bottom-left-radius: 5px;
+}
+
+.out {
+  color: #fff;
+  background: var(--accent);
+  border-bottom-right-radius: 5px;
+}
+
+.text {
+  white-space: pre-wrap;
+}
+
+.meta {
+  gap: 4px;
+  display: flex;
+  flex: 0 0 auto;
+  font-size: 11px;
+  align-items: center;
+  transform: translateY(2px);
+  color: color-mix(in srgb, currentColor 70%, transparent);
+}
+
+@media (max-width: 768px) {
+  .bubble {
+    max-width: 85%;
+  }
+}

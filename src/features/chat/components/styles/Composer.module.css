@@ -1,0 +1,36 @@
+.composer {
+  gap: 10px;
+  display: flex;
+  padding: 14px 20px;
+  align-items: flex-end;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.input {
+  flex: 1;
+  resize: none;
+  font: inherit;
+  line-height: 1.4;
+  max-height: 140px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.input:focus {
+  outline-offset: -1px;
+  border-color: transparent;
+  outline: 2px solid var(--accent);
+}
+
+@media (max-width: 768px) {
+  .composer {
+    padding: 10px 12px;
+  }
+
+  /* 16px stops iOS Safari from zooming in on the focused field. */
+  .input {
+    font-size: 16px;
+  }
+}

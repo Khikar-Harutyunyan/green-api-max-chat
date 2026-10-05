@@ -1,0 +1,193 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "react",
+    "typescript",
+    "oxc"
+  ],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "@testing-library/react",
+            "message": "Import from '@app/test-utils' instead, so the store and StrictMode are applied."
+          }
+        ],
+        "patterns": [
+          {
+            "group": [
+              "@/*",
+              "@/**"
+            ],
+            "message": "Use the '@app/…', '@features/…' and '@ui-kit/…' aliases; '@/' is no longer an alias."
+          },
+          {
+            "group": [
+              "@ui-kit",
+              "@ui-kit/*/**",
+              "@app/utils/*"
+            ],
+            "message": "Import a ui-kit component from its package ('@ui-kit/Button') and utils from '@app/utils', not a deep path."
+          },
+          {
+            "group": [
+              "@features/*/**"
+            ],
+            "message": "Import a feature through its public API ('@features/<name>'), not its internals."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/**/*.test.ts",
+        "src/**/*.test.tsx"
+      ],
+      "rules": {
+        "react/only-export-components": "off"
+      }
+    },
+    {
+      "files": [
+        "src/test-utils/**"
+      ],
+      "rules": {
+        "react/only-export-components": "off",
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@/*",
+                  "@/**"
+                ],
+                "message": "Use the '@app/…', '@features/…' and '@ui-kit/…' aliases; '@/' is no longer an alias."
+              },
+              {
+                "group": [
+                  "@ui-kit",
+                  "@ui-kit/*/**",
+                  "@app/utils/*"
+                ],
+                "message": "Import a ui-kit component from its package ('@ui-kit/Button') and utils from '@app/utils', not a deep path."
+              },
+              {
+                "group": [
+                  "@features/*/**"
+                ],
+                "message": "Import a feature through its public API ('@features/<name>'), not its internals."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/features/chat/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "@testing-library/react",
+                "message": "Import from '@app/test-utils' instead, so the store and StrictMode are applied."
+              }
+            ],
+            "patterns": [
+              {
+                "group": [
+                  "@/*",
+                  "@/**"
+                ],
+                "message": "Use the '@app/…', '@features/…' and '@ui-kit/…' aliases; '@/' is no longer an alias."
+              },
+              {
+                "group": [
+                  "@ui-kit",
+                  "@ui-kit/*/**",
+                  "@app/utils/*"
+                ],
+                "message": "Import a ui-kit component from its package ('@ui-kit/Button') and utils from '@app/utils', not a deep path."
+              },
+              {
+                "group": [
+                  "@features/chat"
+                ],
+                "message": "Inside the chat feature, import the files directly, not its own index (that creates cycles)."
+              },
+              {
+                "group": [
+                  "@features/sign-in/**"
+                ],
+                "message": "Use the sign-in feature's public API ('@features/sign-in')."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/features/sign-in/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "@testing-library/react",
+                "message": "Import from '@app/test-utils' instead, so the store and StrictMode are applied."
+              }
+            ],
+            "patterns": [
+              {
+                "group": [
+                  "@/*",
+                  "@/**"
+                ],
+                "message": "Use the '@app/…', '@features/…' and '@ui-kit/…' aliases; '@/' is no longer an alias."
+              },
+              {
+                "group": [
+                  "@ui-kit",
+                  "@ui-kit/*/**",
+                  "@app/utils/*"
+                ],
+                "message": "Import a ui-kit component from its package ('@ui-kit/Button') and utils from '@app/utils', not a deep path."
+              },
+              {
+                "group": [
+                  "@features/sign-in"
+                ],
+                "message": "Inside the sign-in feature, import the files directly, not its own index (that creates cycles)."
+              },
+              {
+                "group": [
+                  "@features/chat",
+                  "@features/chat/**"
+                ],
+                "message": "The sign-in feature must not depend on the chat feature."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
