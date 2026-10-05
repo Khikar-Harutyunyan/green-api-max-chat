@@ -41,8 +41,6 @@ export const useSignInForm = (): SignInForm => {
 
   const apiUrl = useWatch({ control, name: 'apiUrl' });
 
-  // Built once per apiUrlEdited change rather than per render, so the memoized
-  // Inputs that receive them skip renders while another field is typed in.
   const fields = useMemo<SignInForm['fields']>(
     () => ({
       apiTokenInstance: register('apiTokenInstance', SIGN_IN_RULES.apiTokenInstance),
