@@ -4,6 +4,8 @@ A minimal web client for sending and receiving text messages in the [MAX](https:
 
 Built as a test task. The browser talks to GREEN-API directly; there is no backend.
 
+**Live demo: https://green-api-max-chat.vercel.app**. Sign in with your own GREEN-API instance (see [What you need from GREEN-API](#what-you-need-from-green-api)).
+
 ## Features
 
 - **Sign in** with your GREEN-API `idInstance` and `apiTokenInstance`. `apiUrl` is filled in from the `idInstance` and can be edited.
